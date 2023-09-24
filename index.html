@@ -9,99 +9,100 @@
   </head>
   <body>
     <div class="calculator-container">
-      <p class="make-model">personalError | Calculator v1.0</p>
+      <p class="make-model">personalError | Calculator v1.1</p>
       <div class="display-screen">
         <p id="display-text">0</p>
       </div>
       <button class="number-button" onclick="
-        calculation += 1;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(1);
       ">1</button>
 
       <button class="number-button" onclick="
-        calculation += 2;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(2);
       ">2</button>
 
       <button class="number-button" onclick="
-        calculation += 3;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(3);
       ">3</button>
 
       <button class="operator-button" onclick="
-        calculation += '+';
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber('+');
       ">+</button>
 
       <br>
       <button class="number-button" onclick="
-        calculation += 4;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(4);
       ">4</button>
 
       <button class="number-button" onclick="
-        calculation += 5;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(5);
       ">5</button>
 
       <button class="number-button" onclick="
-        calculation += 6;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(6);
       ">6</button>
 
       <button class="operator-button" onclick="
-        calculation += '-';
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber('-');
       ">-</button>
       <br>
       <button class="number-button" onclick="
-        calculation += 7;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(7);
       ">7</button>
 
       <button class="number-button" onclick="
-        calculation += 8;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(8);
       ">8</button>
 
       <button class="number-button" onclick="
-        calculation += 9;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(9);
       ">9</button>
 
       <button class="operator-button" onclick="
-        calculation += '*';
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber('*');
       ">x</button>
       <br>
       <button class="number-button" onclick="
-        calculation += 0;
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber(0);
       ">0</button>
 
       <button class="number-button" onclick="
-        calculation += '.';
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber('.');
       ">.</button>
 
       <button class="number-button" onclick="
-        document.getElementById('display-text').innerText = eval(calculation);
+        conductCalculation();
       ">=</button>
 
       <button class="operator-button" onclick="
-        calculation += '/';
-        document.getElementById('display-text').innerText = calculation;
+        typeANumber('/');
       ">&divide;</button>
       <br>
 
       <button class="clear-button" onclick="
-        calculation = '';
-        document.getElementById('display-text').innerText = '0';
+        resetCalculator();
       ">Clear</button>
     </div>
 
     <script>
       let calculation = '';
+
+      function typeANumber(userInput) {
+        if (calculation.length <= 11) {
+          calculation += userInput;
+          document.getElementById('display-text').innerText = calculation;
+        }
+      }
+
+      function conductCalculation() {
+        document.getElementById('display-text').innerText = eval(calculation);
+      }
+
+      function resetCalculator() {
+        calculation = '';
+        document.getElementById('display-text').innerText = '0';
+      }
+
     </script>
  
   </body>
